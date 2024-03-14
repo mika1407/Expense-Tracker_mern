@@ -17,12 +17,6 @@ const app = express();
 
 app.use(express.json());
 
-// Use the client app
-app.use(express.static(path.join(__dirname, 'client/build')));
-
-// Render clienn for any path
-app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'client/build/index.html')))
-
 
 if(process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
